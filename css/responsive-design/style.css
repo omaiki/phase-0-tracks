@@ -9,13 +9,13 @@ body {
   padding: 12px;
 }
 
-.main {
+.main-stuff {
   width: 79%;
   display: inline-block;
   vertical-align: right;
 }
 
-.external-links {
+.links {
   width: 20%;
   display: inline-block;
   vertical-align: top;
@@ -29,6 +29,7 @@ cite {
   list-style-type: none;
   padding-left: 0px;
 }
+
 
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like,
@@ -49,6 +50,11 @@ figcaption {
 
 @media screen and (max-width: 500px) {
   body {
-    background-color: hotpink;
+    background-color: green;
   }
+
+  .links {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;}
 }
