@@ -2,10 +2,20 @@
 position: relative;
 margin-left: 40%;
 padding: auto;
+z-index: -1;
 }
 
 .hat {
   position:relative;
   margin-left:40%;
   padding: auto;
+
+
+}
+
+.glasses {
+  position: relative;
+  margin-left:40%;
+  bottom: 200px;
+  left: 40px;
 }
