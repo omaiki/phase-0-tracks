@@ -1,0 +1,24 @@
+header {
+  background: orange;
+  text-align: center;
+  font-family: helvetica;
+}
+
+.column-1 {background: green;
+            font-style: italic;
+            float: left;
+            position: relative;
+            width: 40%;
+            padding: 20px;
+            border-style: solid;
+            border-color: grey;}
+
+.column-2 {background: red;
+            font-weight: 700;
+            float: right;
+            position: relative;
+            padding: 20px;
+            border-style: dotted;
+            width: 40%;}
+            
+footer {clear:both;}
