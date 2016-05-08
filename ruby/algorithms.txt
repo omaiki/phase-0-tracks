@@ -1,0 +1,59 @@
+Elevator algorithm:
+
+*Robot would be coded with ability to read Braille and recognize light through some type of sensor*
+
+If going up:
+ - Press top button outside of elevator doors
+ - Wait for elevator doors to open
+ - Walk in elevator door, turn 180 degrees
+ - Choose button with matching desired Braille for floor number, press button until lit
+ - Exit floor when button becomes unlit
+
+
+ If going down:
+ - Press bottom button outside of elevator doors
+ - Wait for elevator doors to open
+ - Walk in elevator door, turn 180 degrees
+ - Choose button with matching desired Braille for floor number, press button until lit.
+ - Exit floor when button becomes unlit
+
+
+* other passengers should not effect outcome, as long as elevator buttons remain lit until desired floor *
+
+
+Walking dog algorithm:
+
+Yell out "Buddy, are you ready for a walk?"
+
+If barking response:
+- Sit up from programming chair, start stretches
+- Exit room, get water
+- Walk downstairs
+- Put on running shoes
+- Grab leash from basket near door
+- Grab keys
+- Put leash on dog
+- Exit house
+- Turn right, walk up Raleigh Court
+- Turn right on Carson St.
+- Turn right to continue down Refugio Valley Trail
+- Turn right on Coronado
+- Turn right on Carson St.
+
+- If wanting to return home:
+  - Return home by turning right on Raleigh Ct.
+  - Otherwise, continue on Carson St. and turn right on Refugio Valley Trail
+  - Turn right on Coronado
+  - Turn irght on Carson St.
+  - Turn right on Raleigh Ct.
+
+
+
+
+If no response:
+ - Check if dog is sleeping
+ - If sleeping:
+    - Continue prior task
+    - Check again in 15 minutes (900 seconds)
+ - If not sleeping:
+    - Say "Buddy, are you ready for a walk?"
