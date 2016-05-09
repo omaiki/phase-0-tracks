@@ -4,7 +4,6 @@ name = gets.chomp
 
 puts "Noise level of your hamster? (1-10)"
 noise = gets.to_i
-p "Noise level is #{noise}."
 
 puts "Fur color?"
 color = gets.chomp
@@ -20,6 +19,12 @@ if age.empty?
 else
   p age.to_i
 end
+
+p "Hamster name: #{name}."
+p "Hamster's age: #{age}."
+p "Noise level is a #{noise}."
+p "The hamster's fur color is a beautiful #{color}."
+p "Good canditate for adoption: #{answer}"
 
 
 
