@@ -13,7 +13,16 @@ while user_num > 0
   puts "Would you like to enroll in the company's health insurance? (yes/no)"
   health = gets.chomp
 
-  if (age == 2016 - year) && ((garlic == "yes") || (health == "yes"))
+  puts "List any allergies, type 'done' when finished or if no allergies."
+  allergies = gets.chomp
+  until (allergies == "done" || allergies == "sunshine")
+      puts "List any allergies, type 'done' when finished or if no allergies."
+      allergies = gets.chomp
+  end
+
+  if allergies == "sunshine"
+      result = "Probably a vampire."
+  elsif (age == 2016 - year) && ((garlic == "yes") || (health == "yes"))
   result = "Probably not a vampire."
   elsif
     (age != 2016 - year) && (( garlic == "no") || (health == "no"))
@@ -22,7 +31,7 @@ while user_num > 0
     ((age != 2016 - year) && (garlic == "no") && (health == "no"))
     result = "Almost certainly a vampire."
   elsif
-    name == "Drake Cula" || "Tu Fang"
+    name == "Drake Cula" || name == "Tu Fang"
     result = "Definitely a vampire."
   else
     result = "Results inconclusive"
@@ -30,6 +39,7 @@ end
 p result
 user_num -= 1
 end
+print "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
 
 
