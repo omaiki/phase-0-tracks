@@ -3,7 +3,8 @@ puts "What is your hamster's name?"
 name = gets.chomp
 
 puts "Noise level of your hamster? (1-10)"
-noise = gets.chomp
+noise = gets.to_i
+p "Noise level is #{noise}."
 
 puts "Fur color?"
 color = gets.chomp
@@ -17,7 +18,7 @@ if age.empty?
   age = nil
   p age
 else
-  p age
+  p age.to_i
 end
 
 
