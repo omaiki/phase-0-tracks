@@ -11,10 +11,18 @@ health = gets.chomp
 
 if (age == 2016 - year) && ((garlic == "yes") || (health == "yes"))
   result = "Probably not a vampire."
-  p result
 elsif
-
-
+ (age != 2016 - year) && (( garlic == "no") || (health == "no"))
+ result = "Probably a vampire."
+elsif
+  (age != 2016 - year) && (garlic == "no") && (health == "no")
+  result = "Almost certainly a vampire."
+elsif
+  name == "Drake Cula" || "Tu Fang"
+  result = "Definitely a vampire."
+else
+  result = Results inconclusive
 end
+print result
 
 
