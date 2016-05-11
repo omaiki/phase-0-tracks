@@ -79,4 +79,4 @@ password = gets.chomp
 		puts "There was an error with your request, please answer 'encrypt' or 'decrypt'."
 	end
 	
-
+exit
