@@ -72,5 +72,11 @@ puts "Type your password"
 password = gets.chomp
 
 	if answer == "encrypt"
-		puts "#{encrypt(password)} is your encrypted password"
+		puts "#{encrypt(password)} is your encrypted password!"
+	elsif answer == "decrypt"
+		puts "#{decrypt(password)} is your decrypted password!"
+	else
+		puts "There was an error with your request, please answer 'encrypt' or 'decrypt'."
+	end
+	
 
