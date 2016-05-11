@@ -58,3 +58,19 @@ puts decrypt(encrypt("swordfish"))
 #abc
 #zed 
 
+#Pseducode interface
+	# - Ask user whether whey want to decrypt or encrypt with variable and gets.chomp
+	# - Store user input for password in another variable 
+	# - Conduct requested operation 
+	# - Print result
+	# - Exit program 
+
+puts "Would you like to encrypt or decrypt your password?"
+answer = gets.chomp
+
+puts "Type your password"
+password = gets.chomp
+
+	if answer == "encrypt"
+		puts "#{encrypt(password)} is your encrypted password"
+
