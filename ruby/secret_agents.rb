@@ -32,7 +32,7 @@ def decrypt(string2)
 	i = 0 
 	result = " "
 	while index < string2.length
-		if string2[index] = letters[i]
+		if string2[index] == letters[i]
 			result += letters[i - 1]
 			index += 1
 			i = 0 
@@ -47,6 +47,10 @@ puts encrypt("abc")
 puts encrypt("zed")
 puts decrypt ("bcd")
 puts decrypt ("afe")
+puts decrypt(encrypt("swordfish"))
+
+#Nested method works due to parenthesis making encrypt read first,
+# output should be a normal word
 
 
 #bcd
