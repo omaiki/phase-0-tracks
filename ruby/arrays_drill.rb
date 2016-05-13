@@ -1,7 +1,19 @@
+def array_method(a,b,c)
+	build_array = [a,b,c]
+	p build_array
+end
+
+def array_method2(arr, value)
+	arr << value 
+	p arr 
+end
+
+array_method2([1,2,3], 4)
+array_method2(["a","b","c"], "d")
+array_method2(["$@$%", "#@%*", "!@$^" ], "$%^&")
+
 empty_array = []
 p empty_array 
-
-
 
 empty_array << "one"
 empty_array << "two"
@@ -31,3 +43,5 @@ p new_array
 
 added_arrays = new_array + empty_array 
 p added_arrays
+
+array_method(1,2,3)
