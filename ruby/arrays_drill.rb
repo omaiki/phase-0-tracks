@@ -25,3 +25,9 @@ if empty_array.include?("six")
 else
 	puts "This array does not include six!"
 end
+
+new_array = ["dogs","cats","rabbits","hamsters", "octopus"]
+p new_array
+
+added_arrays = new_array + empty_array 
+p added_arrays
