@@ -61,10 +61,15 @@ player_info[:threept_percent] = "#{threept_percent}".to_f
 p player_info
 
 #Ask user if they want to make any edits with if/else statement 
-	# if they answer none, print hash and exit program
+	# if they answer none, print hash 
 	# if they want to edit
-		# get which key they want to edit and save in variable, convert to symbol of hash
-		# use variable 
+		# get which key user wants to edit and save in variable, convert to 
+		# symbol (variable names and symbol names are the same)
+		# get what value user wants to edit to and save into a diff variable
+		# use hash_name[:"#{variable}"] to edit hash 
+		# print updated hash
+	# exit program 
+
 puts "Any edits to player's information?, type 'none' if finished"
 	answer = gets.chomp
 	if answer == "none"
