@@ -23,19 +23,19 @@ name = gets.chomp
 player_info[:name] = "#{name}"
 
 puts "How old is the player?"
-age = gets.chomp
+age = gets.chomp.to_i
 player_info[:age] = "#{age}".to_i
-p player_info
+
 
 puts "What team is the player on?"
 team = gets.chomp
-player_info[:team] = "{team}"
+player_info[:team] = "#{team}"
 
-puts "How many seasons has player been in the NBA"
-seasons = gets.chomp
+puts "How many seasons has the player been in the NBA?"
+seasons = gets.chomp.to_i
 player_info[:seasons] = "#{seasons}".to_i
 
-puts "Player height?"
+puts "Player's height?"
 height = gets.chomp 
 player_info[:height] = "#{height}"
 
@@ -43,9 +43,21 @@ puts "(true/false) The player has won a championship"
 champion = gets.chomp
 player_info[:champion] = "#{champion}"
 
-puts "Player Field Goal Percentage?"
-fg_percent = gets.chomp
+puts "Player's Field Goal Percentage?"
+fg_percent = gets.chomp.to_f
 player_info[:fg_percent] = "#{fg_percent}".to_f
+
+
+puts "Player's Free Throw Percentage?"
+ft_percent = gets.chomp.to_f
+player_info[:ft_percent] = "#{ft_percent}".to_f
+
+puts "Player's Three-Point Percentage?"
+threept_percent = gets.chomp.to_f
+player_info[:threept_percent] = "#{threept_percent}".to_f
+
+
 p player_info
 
 
+		
