@@ -57,7 +57,25 @@ threept_percent = gets.chomp.to_f
 player_info[:threept_percent] = "#{threept_percent}".to_f
 
 
+# print out hash with all user-input
 p player_info
 
+#Ask user if they want to make any edits with if/else statement 
+	# if they answer none, print hash and exit program
+	# if they want to edit
+		# get which key they want to edit and save in variable, convert to symbol of hash
+		# use variable 
+puts "Any edits to player's information?, type 'none' if finished"
+	answer = gets.chomp
+	if answer == "none"
+		p player_info
+	else
+		puts "Which info would you like to update?"
+		update_key = gets.chomp.to_sym
+		puts "Edit your value for '#{update_key}':"
+		update_value = gets.chomp
+		player_info[:"#{update_key}"] = "#{update_value}"
+		p player_info
+	end
 
-		
+exit 
