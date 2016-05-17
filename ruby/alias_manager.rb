@@ -11,17 +11,44 @@ def alias_method
 	split_name = name.split(' ')
 # than swap using shuffle method, use bang op to change existing array
 	split_name.shuffle!
-	p split_name
+# change shuffled name into a string and split back into an array with characters
+	split_name.join.split('')
+# iterate through every character of word
+	
+	
+		#code_name
+	
+# if character is a vowel
+# character should go to next vowel
+=begin case letter == /[aeoui]/
+			when "a"
+				"e" = "a"
+			when "e"
+				"i" = "e"
+			when "i"
+				"o" = "i"
+			when "o"
+				"u" = "o"
+			when "u"
+				"a" = "u"
+		else
+			puts error 
+			
+		end
+
+
+# character should go to next consonant
+			NEXT CONSONANT ALGORITHM
+# join letters back together to form new string, store as code_name
+	code_name = split_name.join('')
+	end 
+	p split_name_array
+=end
+
 end
 
 
 
-# split words into characters
-	# if character is a vowel
-		# character should go to next vowel
-	# else
-		# character should go to next consonant
-	#end
 # convert fake name to capitalized fake name 
 
 
