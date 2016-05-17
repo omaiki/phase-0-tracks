@@ -1,17 +1,15 @@
 # Pseudocode:
 
 # SWAP METHOD:
-# downcases user input
 # seperate first and last name and save as an array
 # swap using shuffle method, use bang op to change existing array
 # change shuffled name into a string and split back into an array to get
 # all characters separated -> array. 
 
 def swap_split_name(name)
-	name.downcase!
 	split_name = name.split(' ')
 	split_name.shuffle!
-	split_name.join.split('')
+	split_name.join(' ')
 end
 
 p swap_split_name("Yo Momma")
@@ -21,22 +19,34 @@ p swap_split_name("Yo Momma")
 # takes user input and uses .tr method to substitute "eioua" for any "aeiou" characters
 # same method for consonants in the alphabet 
 def code_letter(name)
-name = name.tr("aeiou", "eioua")
-name = name.tr("bcdfghjklmnpqrstvwxyz", "cdfghjklmnpqrstvwxyzb")
+name = name.downcase.tr("aeiou", "eioua")
+name = name.downcase.tr("bcdfghjklmnpqrstvwxyz", "cdfghjklmnpqrstvwxyzb")
 end
 
 p code_letter("Felicia Torres")
 
 # set up an array for all of the the different agents and their input
 code_names = []
+
+# set up a loop to ask agent for names continuously, until 'done'
 option = ''
-until option == "quit"
+until option == "done"
+# get user input and call methods to swap and scramble the name 
 	puts "What is your real name, agent?"
 	agent_name = gets.chomp
-	alias_name = code_letter(swap_split_name)
-
+# swap, scrample -> array output, use join method to make a string of two words
+# and capitalize
+	alias_name = code_letter(swap_split_name(agent_name)).capitalize
+# Give agent a new name! 
+	puts "Agent, your new identity is: #{alias_name}"
 # add alias_name to array code_names
-code_names << [agent_name, alias_name]
+	code_names << [agent_name, alias_name]
+# ask user for more input if wanted, otherwise quit
+	puts "Would you like to enter another name? Press any key and enter. 
+	If Finished, type 'done'."
+	option = gets.chomp 
+	end
+
 
 	
 
