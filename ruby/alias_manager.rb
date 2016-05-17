@@ -1,17 +1,11 @@
 # Pseudocode:
 
-# get user input
-# convert user input to downcase
-
-#puts "What is your name, agent?"
-#name = gets.chomp 
-
 # SWAP METHOD:
 # downcases user input
 # seperate first and last name and save as an array
 # swap using shuffle method, use bang op to change existing array
 # change shuffled name into a string and split back into an array to get
-# all characters separated. 
+# all characters separated -> array. 
 
 def swap_split_name(name)
 	name.downcase!
@@ -23,13 +17,26 @@ end
 p swap_split_name("Yo Momma")
 
 	
-#vowel and consonant transformation method
-def next_letter(name)
+#vowel and consonant transformation method:
+# takes user input and uses .tr method to substitute "eioua" for any "aeiou" characters
+# same method for consonants in the alphabet 
+def code_letter(name)
 name = name.tr("aeiou", "eioua")
 name = name.tr("bcdfghjklmnpqrstvwxyz", "cdfghjklmnpqrstvwxyzb")
 end
 
-p next_letter("Yo Momma")
+p code_letter("Felicia Torres")
+
+# set up an array for all of the the different agents and their input
+code_names = []
+option = ''
+until option == "quit"
+	puts "What is your real name, agent?"
+	agent_name = gets.chomp
+	alias_name = code_letter(swap_split_name)
+
+# add alias_name to array code_names
+code_names << [agent_name, alias_name]
 
 	
 
