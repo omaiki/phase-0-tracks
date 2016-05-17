@@ -30,61 +30,35 @@ code_names = []
 
 # set up a loop to ask agent for names continuously, until 'done'
 option = ''
-until option == "done"
+until option == "quit"
 # get user input and call methods to swap and scramble the name 
 	puts "What is your real name, agent?"
 	agent_name = gets.chomp
-# swap, scrample -> array output, use join method to make a string of two words
-# and capitalize
-	alias_name = code_letter(swap_split_name(agent_name)).capitalize
+# call both methods to swap and scramble name -> string output, use split to convert 
+#to an array for later iteration
+	alias_name = code_letter(swap_split_name(agent_name)).split
+# use map method to get both words in the array and capitalize both, use bang op
+	alias_name.map do |x|
+		x.capitalize!
+	end
+	alias_name.join(' ')
 # Give agent a new name! 
 	puts "Agent, your new identity is: #{alias_name}"
 # add alias_name to array code_names
 	code_names << [agent_name, alias_name]
 # ask user for more input if wanted, otherwise quit
 	puts "Would you like to enter another name? Press any key and enter. 
-	If Finished, type 'done'."
+	If Finished, type 'quit'."
 	option = gets.chomp 
 	end
 
+# Finally iterate through the array, and print all user input before program exits.
+code_names.each do |real, spy|
+	puts "Agent's real name: #{real}."
+	puts "Agent's code name: #{spy}."
+end
 
-	
-
-	
-# if character is a vowel
-# character should go to next vowel
-=begin case letter == /[aeoui]/
-			when "a"
-				"e" = "a"
-			when "e"
-				"i" = "e"
-			when "i"
-				"o" = "i"
-			when "o"
-				"u" = "o"
-			when "u"
-				"a" = "u"
-		else
-			puts error 
-			
-		end
-
-
-# character should go to next consonant
-			NEXT CONSONANT ALGORITHM
-# join letters back together to form new string, store as code_name
-	code_name = split_name.join('')
-	end 
-	p split_name_array
-=end
-
-
-
-
-
-# convert fake name to capitalized fake name 
-
-
+exit
 
 
 
