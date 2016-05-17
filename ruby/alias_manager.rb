@@ -4,9 +4,11 @@
 # get user input
 # convert user input to downcase
 
-def alias_method
-	puts "What is your name, agent?"
-	name = gets.chomp.downcase
+#puts "What is your name, agent?"
+#name = gets.chomp 
+
+def alias_method(name)
+	name.downcase!
 # seperate first and last name and save array as variable
 	split_name = name.split(' ')
 # than swap using shuffle method, use bang op to change existing array
@@ -14,6 +16,9 @@ def alias_method
 # change shuffled name into a string and split back into an array with characters
 	split_name.join.split('')
 # iterate through every character of word
+end
+
+p alias_method("Yo Momma")
 	
 	
 		#code_name
@@ -45,13 +50,13 @@ def alias_method
 	p split_name_array
 =end
 
-end
+
 
 
 
 # convert fake name to capitalized fake name 
 
 
-p alias_method
+
 
 
