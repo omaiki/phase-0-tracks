@@ -1,27 +1,38 @@
 # Pseudocode:
 
-# define method
 # get user input
 # convert user input to downcase
 
 #puts "What is your name, agent?"
 #name = gets.chomp 
 
-def alias_method(name)
+# SWAP METHOD:
+# downcases user input
+# seperate first and last name and save as an array
+# swap using shuffle method, use bang op to change existing array
+# change shuffled name into a string and split back into an array to get
+# all characters separated. 
+
+def swap_split_name(name)
 	name.downcase!
-# seperate first and last name and save array as variable
 	split_name = name.split(' ')
-# than swap using shuffle method, use bang op to change existing array
 	split_name.shuffle!
-# change shuffled name into a string and split back into an array with characters
 	split_name.join.split('')
-# iterate through every character of word
 end
 
-p alias_method("Yo Momma")
+p swap_split_name("Yo Momma")
+
 	
+#vowel and consonant transformation method
+def next_letter(name)
+name = name.tr("aeiou", "eioua")
+name = name.tr("bcdfghjklmnpqrstvwxyz", "cdfghjklmnpqrstvwxyzb")
+end
+
+p next_letter("Yo Momma")
+
 	
-		#code_name
+
 	
 # if character is a vowel
 # character should go to next vowel
