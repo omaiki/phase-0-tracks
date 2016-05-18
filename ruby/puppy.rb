@@ -21,6 +21,7 @@ BEHAVIOR -------------------
 	Lick
 	Jump
 	Tail wag
+	Roll over 
 	
 
 
