@@ -52,7 +52,7 @@ until option == "quit"
 	option = gets.chomp 
 	end
 
-# Finally iterate through the array, and print all user input before program exits.
+# Finally, iterate through the array, and print all user input before program exits.
 code_names.each do |real, spy|
 	puts "Agent's real name: #{real}."
 	puts "Agent's code name: #{spy}."
