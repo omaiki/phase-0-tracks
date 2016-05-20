@@ -57,21 +57,21 @@ snoopy.jump_n_lick("Flora", "her")
 # DESIGN YOUR OWN CLASS FOR RELEASE 2 
 
 class Player
-	def initalize
-		"Initalizing new player..."
+	def initialize
+		p "initalizing new player..."
 	end
 
-	def shoot(n1,n2,n3)
+	def shooting(n1,n2,n3)
 		p "Short range shooting stat: #{n1}"
 		p "Medium range shooting stat: #{n2}"
 		p "Long range shooting stat: #{n3}"
 	end
 
-	def dribble(integer)
+	def dribble_stat(integer)
 		p "Dribbling in traffic: #{integer}"
 	end
 
-	def pass(integer)
+	def pass_stat(integer)
 		p "Vision and passing: #{integer}"
 	end
 
@@ -87,4 +87,10 @@ while i <= 50
 	player_names[i] = Player.new
 	player_names << i
 i += 1
+end
+
+ObjectSpace.each_object Player do |name|
+	 name.shooting(90,85,99)
+	 name.dribble_stat(95)
+	 name.pass_stat(90)
 end
