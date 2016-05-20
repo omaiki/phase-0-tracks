@@ -52,3 +52,30 @@ buddy.jump_n_lick("Oshoke", "him")
 snoopy = Puppy.new
 snoopy.fetch("jerky")
 snoopy.jump_n_lick("Flora", "her")
+
+
+# DESIGN YOUR OWN CLASS FOR RELEASE 2 
+
+class Player
+	def initalize
+		"Initalizing new player..."
+	end
+
+	def shoot(n1,n2,n3)
+		p "Short range shooting stat: #{n1}"
+		p "Medium range shooting stat: #{n2}"
+		p "Long range shooting stat: #{n3}"
+	end
+
+	def dribble(integer)
+		p "Dribbling in traffic: #{integer}"
+	end
+
+	def pass(integer)
+		p "Vision and passing: #{integer}"
+	end
+
+end
+
+# Classes use camel-case in ruby
+StephenCurry = Player.new
