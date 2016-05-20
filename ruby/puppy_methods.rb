@@ -89,8 +89,9 @@ while i <= 50
 i += 1
 end
 
-ObjectSpace.each_object Player do |name|
-	 name.shooting(90,85,99)
-	 name.dribble_stat(95)
-	 name.pass_stat(90)
+# ***Use ObjectSpace to retrieve all instances of a given class ***
+ObjectSpace.each_object Player do |instance|
+	 instance.shooting(90,85,99)
+	 instance.dribble_stat(95)
+	 instance.pass_stat(90)
 end
