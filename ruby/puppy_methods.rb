@@ -77,5 +77,14 @@ class Player
 
 end
 
-# Classes use camel-case in ruby
-StephenCurry = Player.new
+# set up an array to store instances
+player_names = []
+# set index/counter at 0
+i = 0
+# loop 50 times
+while i <= 50
+# create and 0-50 new instances at index 0 in player_names array
+	player_names[i] = Player.new
+	player_names << i
+i += 1
+end
