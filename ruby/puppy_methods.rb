@@ -7,3 +7,7 @@ class Puppy
 
 end
 
+
+
+buddy = Puppy.new
+buddy.fetch("stuffed animal")
