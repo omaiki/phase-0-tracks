@@ -22,6 +22,10 @@ class Puppy
   	p dog_years.round
   end
 
+  def jump_n_lick(name, gender)
+  	p "*Jumps on #{name} and licks #{gender} right in the face"
+  end
+
 end
 
 
@@ -33,11 +37,14 @@ buddy.fetch("stuffed animal")
 buddy.speak(7)
 #calling roll_over method on instance buddy
 buddy.roll_over
-
+#calling dog_years method
 buddy.dog_years(50)
+#calling jump_n_lick method
+buddy.jump_n_lick("Oshoke", "him")
 
 #any other instance of Puppy should be able to call these methods as
 # long as it is initalized
 
 snoopy = Puppy.new
 snoopy.fetch("jerky")
+snoopy.jump_n_lick("Flora", "her")
