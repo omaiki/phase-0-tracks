@@ -1,3 +1,8 @@
+=begin
+TodoList class
+- had to make get_items method first
+=end
+
 class TodoList
   def initialize(chores)
     @list = chores
@@ -42,3 +47,4 @@ describe TodoList do
     expect(list.get_item(0)).to eq "do the dishes"
   end
 end
+
