@@ -1,13 +1,23 @@
 class TodoList
-  def initialze(chores)
+  def initialize(chores)
     @list = chores
   end
 
   def get_items
-    p @list_items
+    p @list
   end
 
-  def add
+  def add_item(chore)
+    @list << chore
+  end
+
+  def delete_item(chore)
+    @list.delete(chore)
+  end
+
+  def get_item(chore)
+   p @list[0]
+ end
 
 end
 
