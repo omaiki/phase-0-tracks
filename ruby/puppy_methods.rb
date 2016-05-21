@@ -89,7 +89,6 @@ while i < 50
 i += 1
 end
 
-
 player_names.each do |instance|
   instance.shooting(90,85,99)
   instance.dribble_stat(95)
