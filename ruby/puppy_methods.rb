@@ -82,16 +82,24 @@ player_names = []
 # set index/counter at 0
 i = 0
 # loop 50 times
-while i <= 50
+while i < 50
 # create and 0-50 new instances at index 0 in player_names array
 	player_names[i] = Player.new
-	player_names << i
+#	player_names << i
 i += 1
 end
 
+player_names.each do |instance|
+  instance.shooting(90,85,99)
+  instance.dribble_stat(95)
+  instance.pass_stat(90)
+end
+
+=begin
 # ***Use ObjectSpace to retrieve all instances of a given class ***
 ObjectSpace.each_object Player do |instance|
 	 instance.shooting(90,85,99)
 	 instance.dribble_stat(95)
 	 instance.pass_stat(90)
 end
+=end
