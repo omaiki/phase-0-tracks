@@ -40,17 +40,32 @@ class Player_bball
     p "Creating #{player_name}..."
     p "#{height}"
     p "#{jersey}"
+    @name = player_name
     @height = height
     @jersey = jersey
     @skill_choices = ["shooting", "dribbling", "passing", "rebounding", "defense"]
+    @team = "Golden State Warriors"
+    @skill = ""
   end
 
   def assign
-   p @skill_choices.sample(2)
+    @skill = @skill_choices.sample(2)
+   p @skill
   end
 
+  def shoot_the_J
+  if @skill.include? @skill_choices[0]
+    p "#{@name} takes the shot, *swish* IT'S GOOD! "
+  else
+    p "#{@name} takes the shot, *miss* ouch, they're making mansions with those bricks!"
+  end
+  end
+
+  def position_choice(height)
+  end
 end
 
 player_one = Player_bball.new("Oshoke", "5'10", 21)
 player_one.assign
+player_one.shoot_the_J
 
