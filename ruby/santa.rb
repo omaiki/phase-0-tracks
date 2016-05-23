@@ -1,7 +1,9 @@
 
 class Santa
 
-  attr_reader :gender, :weight, :name, :age, :ethnicity, :reindeer_ranking
+  attr_reader :gender, :weight, :age, :ethnicity, :reindeer_ranking
+
+  attr_accessor :name, :gender
 
   def initialize(gender, ethnicity, weight, name)
     @gender = gender
@@ -49,6 +51,7 @@ class Santa
 
 =end
 
+=begin
   #setter method (Release 2)
   def name=(new_name)
     @name = new_name
@@ -57,6 +60,7 @@ class Santa
   def gender=(new_gender)
     @gender = new_gender
   end
+=end
 
   #attribute changers (Release 2)
   def celebrate_birthday(age)
@@ -69,15 +73,10 @@ class Santa
   end
 
 
+
 end
 
 
-=begin
-DRIVER CODE FOR RELEASE 0
-santa = Santa.new
-santa.speak
-santa.eat_milk_and_cookies("snickerdoodle")
-=end
 
 #Driver code for release 1-3
 # Set an empty array and arrays with desired info
