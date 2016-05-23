@@ -4,8 +4,8 @@ class Santa
   def initialize(gender, ethnicity, weight, name)
     @gender = gender
     @ethnicity = ethnicity
-    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer," "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer,", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+    @age = 70
     @weight = weight
     @name = "Saint Nicholas"
     p "Initializing Santa instance ..."
@@ -32,7 +32,19 @@ class Santa
     @name
   end
 
-  #setter method
+  def age
+    @age
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
+  def reindeer_ranking
+    @reindeer_ranking
+  end
+
+  #setter method (Release 2)
   def name=(new_name)
     @name = new_name
   end
@@ -41,11 +53,14 @@ class Santa
     @gender = new_gender
   end
 
-  #attribute changers
+  #attribute changers (Release 2)
   def celebrate_birthday(age)
+    @age += 1
   end
 
-  def get_mad_at(name)
+  def get_mad_at(reindeer_name)
+    @reindeer_ranking.delete(reindeer_name)
+    @reindeer_ranking << reindeer_name
   end
 
 
@@ -59,7 +74,7 @@ santa.speak
 santa.eat_milk_and_cookies("snickerdoodle")
 =end
 
-
+#Driver code for release 1-3
 # Set an empty array and arrays with desired info
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
@@ -75,10 +90,17 @@ end
 
 puts "There are #{santas.length} Santas at this Santacon!"
 
-santa_example = Santa.new("male", "N/A", 200, "Saint Nicholas")
+santa_example = Santa.new("male", "African-American", 200, "Saint Nicholas")
 puts "#{santa_example.gender} santa weighs #{santa_example.weight} pounds."
-puts "#{santa_example.name}."
+p "#{santa_example.name}."
 
 santa_example.name = "Saint Nick"
-puts "#{santa_example.name}."
+p "#{santa_example.name}."
+
+santa_example.gender = "female"
+p "Santa is #{santa_example.age} years old and an #{santa_example.ethnicity} #{santa_example.gender} now!"
+
+p santa_example.reindeer_ranking
+
+p santa_example.get_mad_at("Vixen")
 
