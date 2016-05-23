@@ -1,6 +1,8 @@
 
 class Santa
 
+  attr_reader :gender, :weight, :name, :age, :ethnicity, :reindeer_ranking
+
   def initialize(gender, ethnicity, weight, name)
     @gender = gender
     @ethnicity = ethnicity
@@ -19,6 +21,7 @@ class Santa
     p "That was a good #{cookie}!"
   end
 
+=begin
 #getter methods
   def gender
     @gender
@@ -43,6 +46,8 @@ class Santa
   def reindeer_ranking
     @reindeer_ranking
   end
+
+=end
 
   #setter method (Release 2)
   def name=(new_name)
