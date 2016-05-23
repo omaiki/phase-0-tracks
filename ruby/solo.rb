@@ -36,16 +36,19 @@ Methods------------------
 
 class Player_bball
 
-  def initialize(player_name, height, jersey)
+  attr_reader :skill, :position
+  attr_accessor :team, :jersey, :name
+
+  def initialize(player_name, team, jersey)
     p "Creating #{player_name}..."
-    p "#{height}"
+    p "#{team}"
     p "#{jersey}"
     @name = player_name
-    @height = height
+    @team = team
     @jersey = jersey
     @skill_choices = ["shooting", "dribbling", "passing", "rebounding", "defense"]
-    @team = "Golden State Warriors"
-    @skill = ""
+    @skill = ''
+    @position = ''
   end
 
   def assign
@@ -61,11 +64,49 @@ class Player_bball
   end
   end
 
-  def position_choice(height)
+#assume correct user input for the height
+  def position_choice(height_in_inches)
+    if height_in_inches <= 79
+      @position = "guard"
+      p @position
+    elsif (height_in_inches >= 79) && (height_in_inches <= 84)
+      @position = "forward"
+      p @position
+    else
+      @position = "center"
+      p @position
+    end
   end
 end
 
-player_one = Player_bball.new("Oshoke", "5'10", 21)
+=begin
+####Sample Driver Code#####
+player_one = Player_bball.new("Oshoke Maiki", "Warriors", 21)
 player_one.assign
+player_one.position_choice(75)
 player_one.shoot_the_J
+=end
+
+user_players = []
+
+puts "Time to create a new player!"
+answer = ''
+until answer == 'done'
+ puts "Your player name?"
+ name = gets.chomp
+ puts "What team would you like to play for?"
+ team = gets.chomp
+ puts "What is your jersey number?"
+ jersey = gets.chomp
+
+user_players << Player_bball.new(name,team,jersey)
+p "Press enter to continue creating a player. or type 'done' if you are finished."
+answer = gets.chomp
+end
+
+user_players.each do |player|
+  p "Nuuuumber #{player.jersey} of the #{player.team}, #{player.name}!!!!!!!"
+end
+
+
 
