@@ -5,7 +5,7 @@
       // split into an array
       // reverse order of array
       // join back into a string
-      // print reversed string
+      // store reversed string
 
 function reverseString(string) {
   var newString = string.split('').reverse().join('');
@@ -20,6 +20,19 @@ var reverseHello = reverseString("hello");
 console.log(reverseHello);
 console.log((reverseHello) + "Oshoke");
 
+
+
+if (1 == 1) {
+  console.log(reverseHello);
+} else {
+  console.log("ERROR ERROR ERROR, no palindromes!")
+}
+
+// Terminal should have 4 outputs total for whole file
+  // - print from function
+  // - print from calling the function
+  // - print from calling function and adding another string "Oshoke"
+  // - print from if/else statement for true boolean (1==1)
 
 
 
