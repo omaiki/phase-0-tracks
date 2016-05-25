@@ -1,46 +1,57 @@
-=begin Pseudocode
-- Encrypt: 
-			#- Define method with name
-			#- Remove first letter in string at index 0
-			- Advance one letter forward from last index on string
-			- end method
+=begin
+- Encrypt:
+			- method with 1 argument
+			- while loop with counter at 0 to go through a full length of string
+			- use .next on string[counter]
+			- increment counter
 
 
 
-		- Decrypt: 
-			- Define method with name
-			- Shift string one letter back from last index using most negative index
-			- Remove least negative (most positive) index (last letter in string)
-			- end method 
-=end 
+		- Decrypt:
+			- method with 1 argument
+=end
 
 
 
 
 def encrypt(string)
-	index = 0 
-	while index < string.length
-		string[index] = string[index].next
-	index += 1 
+	i = 0
+	while i < string.length
+		if string[i] == 'z'
+			string[i] = 'a'
+		else
+		string[i] = string[i].next
 	end
-	string = string.gsub("ab", "a")
+	i += 1
+end
+string
 end
 
-def decrypt(string2)
+def decrypt(string)
+	abc = "abcefghijklmnopqrstuvwxyz"
+	index = 0
+	i = 0
+	result = ''
+
+begin
+def decrypt(string)
 	letters = "abcdefghijklmnopqrstuvwxyz"
-	index = 0 
-	i = 0 
+	index = 0
+	i = 0
 	result = " "
-	while index < string2.length
-		if string2[index] == letters[i]
+	while index < string.length
+		if string[index] == letters[i]
 			result += letters[i - 1]
 			index += 1
-			i = 0 
+			i = 0
 		end
 		i += 1
 	end
 	result
 end
+end
+
+
 
 
 puts encrypt("abc")
@@ -56,14 +67,14 @@ puts decrypt(encrypt("swordfish"))
 #bcd
 #afe
 #abc
-#zed 
+#zed
 
 #Pseducode interface
 	# - Ask user whether whey want to decrypt or encrypt with variable and gets.chomp
-	# - Store user input for password in another variable 
-	# - Conduct requested operation 
+	# - Store user input for password in another variable
+	# - Conduct requested operation
 	# - Print result
-	# - Exit program 
+	# - Exit program
 
 puts "Would you like to encrypt or decrypt your password?"
 answer = gets.chomp
@@ -78,5 +89,5 @@ password = gets.chomp
 	else
 		puts "There was an error with your request, please answer 'encrypt' or 'decrypt'."
 	end
-	
+
 exit
