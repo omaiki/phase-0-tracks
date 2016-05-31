@@ -21,7 +21,7 @@ SELECT * FROM tablename WHERE column=value;
 ex. SELECT * FROM rabbits WHERE age=5;
 
 To create new row
-INSERT INTO tablename (rowname) VALUES (value);
+INSERT INTO tablename (columnname) VALUES (value);
 ex. INSERT INTO rabbits (name) VALUES ("Oreo");
 
 To create new column
@@ -39,3 +39,17 @@ ex. DROP TABLE rabbits;
 To delete a row or rows from a table
 DELETE FROM tablename WHERE columnname=value;
 ex. DELETE FROM rabbits WHERE name="Oreo";
+
+To create a primary key (unique per row), put it in table creation
+
+CREATE TABLE <tablename> (
+id INTEGER PRIMARY KEY,
+.... rest of your attributes go here....
+);
+
+CREATE TABLE players (
+name VARCHAR(255),
+number INT,
+team_id INT,
+FOREIGN KEY (team_id) REFERENCES teams(id)
+);
