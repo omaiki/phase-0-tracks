@@ -13,8 +13,6 @@ require_relative 'state_data'
 #Require_relative takes code from another file with a relative path
 #require is used to take code from libraries, gems
 
-
-
 # require_relative 'state_data'
 
 class VirusPredictor
@@ -29,7 +27,6 @@ class VirusPredictor
     @number_of_deaths = " "
     @range = " "
   end
-
 
 
 # running methods predicted_deaths and speed_of_spread using input
@@ -129,7 +126,7 @@ end
  end
 
 
-#=======================================================================
+#================================================================
 # Reflection Section
 
 # A difference in the hash syntax in the stata data file is that one hash uses symbols while another uses => syntax. The hash with symbols has two key-value pairs while the other has 50 key-value pairs for the 50 states.
