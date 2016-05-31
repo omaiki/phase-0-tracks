@@ -1,0 +1,55 @@
+To run SQL .db files
+sqlite3 example.db
+
+To view tables
+.tables
+
+To create new table
+CREATE TABLE tablename (columnname DATATYPE);
+ex. CREATE TABLE rabbits (name CARCHAR(255), age INT, fluffy BOOLEAN);
+
+To view entire table (* is used to view all)
+SELECT * FROM tablename;
+ex. SELECT * FROM rabbits;
+
+To view certain column(s)
+SELECT columnname FROM tablename;
+ex. SELECT name, age FROM rabbits;
+
+To conditionally view rows
+SELECT * FROM tablename WHERE column=value;
+ex. SELECT * FROM rabbits WHERE age=5;
+
+To create new row
+INSERT INTO tablename (columnname) VALUES (value);
+ex. INSERT INTO rabbits (name) VALUES ("Oreo");
+
+To create new column
+ALTER TABLE tablename ADD columnname DATATYPE;
+ex. ALTER TABLE rabbits ADD adoptable BOOLEAN;
+
+To update data in table
+UPDATE tablename SET columnnam=value WHERE columnname=value;
+ex. UPDATE rabbits SET age=5 WHERE name="Oreo";
+
+To delete a table (drop table)
+DROP TABLE tablename;
+ex. DROP TABLE rabbits;
+
+To delete a row or rows from a table
+DELETE FROM tablename WHERE columnname=value;
+ex. DELETE FROM rabbits WHERE name="Oreo";
+
+To create a primary key (unique per row), put it in table creation
+
+CREATE TABLE <tablename> (
+id INTEGER PRIMARY KEY,
+.... rest of your attributes go here....
+);
+
+CREATE TABLE players (
+name VARCHAR(255),
+number INT,
+team_id INT,
+FOREIGN KEY (team_id) REFERENCES teams(id)
+);
