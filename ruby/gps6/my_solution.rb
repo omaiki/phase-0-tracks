@@ -6,11 +6,11 @@ require_relative 'state_data'
 
 # Virus Predictor
 
-# I worked on this challenge [Alison Mueller  ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge with [Alison Mueller].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#Require_relative takes code from another file through a relative path
+#Require_relative takes code from another file with a relative path
 #require is used to take code from libraries, gems
 
 
@@ -131,3 +131,14 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# A difference in the hash syntax in the stata data file is that one hash uses symbols while another uses => syntax. The hash with symbols has two key-value pairs while the other has 50 key-value pairs for the 50 states.
+
+#Require_relative takes code from another file with a relative path
+#require is used to take code from libraries, gems
+
+#.each with two parameters will go through key-value pairs in a hash.
+#.map will turn hash key-value into an array
+
+#Refactoring really helped me understand instance variables and the initialize method.. it allows you to use the same parameters throughout your instance methods, which is very efficient and clear
+
