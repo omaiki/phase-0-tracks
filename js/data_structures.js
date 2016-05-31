@@ -23,3 +23,18 @@ function push_info(name_array, color_array) {
 };
 
 console.log(push_info(names, colors));
+
+function car(make, model, year) {
+
+  this.make = make;
+  this.model = model;
+  this.year = year;
+
+  this.revItUp = function() {console.log("VROOOOOOOM");};
+
+  console.log("CAR IS BEING BUILT...");
+};
+
+var paul = new car("chevy", "impala", 2007);
+console.log(paul);
+paul.revItUp();
