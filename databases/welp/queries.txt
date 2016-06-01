@@ -1,0 +1,29 @@
+SELECT businesses.name, users.firstname AS first, users.lastname AS last, reviews.stars, reviews.review
+FROM reviews
+LEFT JOIN users ON (businesses.id = reviews.business_id)
+LEFT JOIN businesses ON (businesses.id = users.id);
+
+
+OUTPUT------------------------------- (cant figure out why there are duplicates)
+-------------------------------------------
+
+
+Lotus Yoga|Denzel|George|4|get your sweat on!
+|Holly|Berry|4|get your sweat on!
+|Steven|Wonder|4|get your sweat on!
+|Denzel|George|5|the best in the business
+
+Sushi World|Holly|Berry|5|the best in the business
+|Steven|Wonder|5|the best in the business
+|Denzel|George|3|mediocre
+|Holly|Berry|3|mediocre
+
+The Beagle Nightclub|Steven|Wonder|3|mediocre
+|Denzel|George|5|the best around
+|Holly|Berry|5|the best around
+|Steven|Wonder|5|the best around
+
+
+SELECT businesses.name, users.firstname as first, users.lastname AS last, reviews.stars, reviews.review
+FROM reviews
+JOIN
