@@ -50,12 +50,6 @@ function generateArray(integer) {
 
 console.log(longestPhrase(generateArray(10)))
 
-// for(var i = 0; i < 10; i++) {
-//   var amount = Math.floor(Math.random() * 5 + 2);
-//   var list = generateTestData(amount);
-//   console.log(list);
-//   console.log(returnLongest(list));
-// }
 
 
 
