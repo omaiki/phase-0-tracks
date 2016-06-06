@@ -47,9 +47,44 @@ id INTEGER PRIMARY KEY,
 .... rest of your attributes go here....
 );
 
-CREATE TABLE players (
-name VARCHAR(255),
-number INT,
-team_id INT,
-FOREIGN KEY (team_id) REFERENCES teams(id)
+<name_of_column_to_create> <DATA_TYPE_OF_COLUMN_TO_CREATE>,
+FOREIGN KEY(<name_of_column_to_create>) REFERENCES <existing_table_name>(<existing_column_name>)
+
+CREATE TABLE businesses (
+id INTEGER PRIMARY KEY,
+name VARCHAR(255)
 );
+
+CREATE TABLE users (
+id INTEGER PRIMARY KEY,
+firstname VARCHAR(255),
+lastname VARCHAR(255)
+);
+
+CREATE TABLE reviews (
+id INT PRIMARY KEY,
+stars INT,
+review VARCHAR(255),
+business_id INT,
+users_id INT,
+FOREIGN KEY (business_id) REFERENCES businesses(id),
+FOREIGN KEY (users_id) REFERENCES users(id)
+);
+
+
+SELECT * FROM reviews INNER JOIN businesses ON
+
+SELECT businesses.id AS id_num, users.id AS id_person
+FROM reviews, businesses, users
+JOIN reviews ON id_num = reviews.id
+JOIN users ON id_person = reviews.id
+
+
+
+
+SELECT businesses.name, users.firstname AS first, users.lastname AS last, reviews.stars, reviews.review
+FROM reviews
+LEFT JOIN users ON (businesses.id = reviews.business_id)
+LEFT JOIN businesses ON (businesses.id = users.id);
+
+
