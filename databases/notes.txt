@@ -5,8 +5,15 @@ To view tables
 .tables
 
 To create new table
-CREATE TABLE tablename (columnname DATATYPE);
-ex. CREATE TABLE rabbits (name CARCHAR(255), age INT, fluffy BOOLEAN);
+CREATE TABLE tablename (
+columnname DATATYPE
+);
+
+ex. CREATE TABLE rabbits (
+name CARCHAR(255),
+age INT,
+fluffy BOOLEAN
+);
 
 To view entire table (* is used to view all)
 SELECT * FROM tablename;
