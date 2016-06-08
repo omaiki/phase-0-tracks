@@ -39,17 +39,17 @@ SQL
       progression = "Complete three sets, 10 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
     when "2"
         progression_calc = max * 0.80
-        progression = "Complete three sets, 8 repetitions of #{progression_calc_to_i.to_s} pounds at your next workout."
+        progression = "Complete three sets, 8 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
     when "3"
         progression_calc = max * 0.90
         progression = "Complete three sets, 4 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
     end
-    progression
+    return progression
 end
 
 #method to create user on user table
-def create_user(db, name, weight, exercise)
-  db.execute("INSERT INTO user (name, weight, exercise) VALUES (?, ?, ?)", [name, weight, exercise])
+def create_user(db, name, weight, exercise, progression)
+  db.execute("INSERT INTO user (name, weight, exercise, progression) VALUES (?, ?, ?, ?)", [name, weight, exercise, progression])
 end
 
 #method to add exercise info to user on table
@@ -71,19 +71,17 @@ until answer == 'exit'
   max = gets.chomp.to_i
   puts "Intensity? (1-3; 3 being highest)"
   intensity = gets.chomp
-  progressive_overload(exercise, intensity, max)
-  #making a user
-  create_user(db, name, weight, exercise)
+  progression = progressive_overload(exercise, intensity, max)
+  #storing data into making a user
+  create_user(db, name, weight, exercise, progression)
 puts "Press enter to continue with another user or ,'exit', if you are finished!"
 answer = gets.chomp
+user = db.execute("SELECT * FROM user")
+user.each do |user|
+  puts "#{user['name']} weighs #{user['weight']} pounds. For #{user['exercise']}, #{user['progression']}."
+end
 end
 
-#progressive_overload
 
-
-# user = db.execute("select * from user")
-# user.each do |user|
-#   puts "#{user['name']} weighs #{user['weight']} pounds. Workout of choice is: #{user['workout']}."
-# end
 
 
