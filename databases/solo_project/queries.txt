@@ -31,7 +31,7 @@ OUTPUT -----------------
   6|The Way of Kings|1007|2|2|Brandon Sanderson|December 19th, 1975
   7|Mistborn: The Final Empire|541|2|2|Brandon Sanderson|December 19th, 1975
 
-SELECT books.title, books.Page_count, author.name FROM books join author ON books.author_id = author.id;
+SELECT books.title, books.Page_count, author.name FROM books JOIN author ON books.author_id = author.id;
 
 OUTPUT-----------------------
 
@@ -57,3 +57,50 @@ OUTPUT-----------------------
   7|Mistborn: The Final Empire|541|2
 
 
+DIFFERENT TYPE OF JOINS:
+  - Inner join
+  - Outer join
+  - Right join
+  - Full join
+
+  There is a good ven diagram describing the different type of joins on <http://www.sql-join.com/sql-join-types>
+  -- very helpful.
+
+
+  SELECT books.title, books.Page_count, author.name
+  from books
+  INNER join author
+  on author.id = books.author_id;
+
+  OUTPUT --------------------------
+
+  A Storm of Swords|973|George R.R. Martin
+  To Kill a Mockingbird|281|Harper Lee
+  A Lesson Before Dying|256|Ernest J. Gaines
+  The Old Man & the Sea|127|Ernest Hemingway
+  The Way of Kings|1007|Brandon Sanderson
+  Mistborn: The Final Empire|541|Brandon Sanderson
+_______________________________________________________
+
+SELECT books.title, books.Page_count, author.name
+  from books
+  INNER join author
+  on author.id = books.author_id;
+
+OUTPUT-----------------------------
+A Storm of Swords|973|George R.R. Martin
+To Kill a Mockingbird|281|Harper Lee
+A Lesson Before Dying|256|Ernest J. Gaines
+The Old Man & the Sea|127|Ernest Hemingway
+The Way of Kings|1007|Brandon Sanderson
+Mistborn: The Final Empire|541|Brandon Sanderson
+----------------------------------------------------------
+
+SELECT books.title, books.Page_count, author.name, author.born
+FROM books
+RIGHT join author
+on books.author_id = author.id;
+
+OUTPUT----------
+
+  Error: RIGHT and FULL OUTER JOINs are not currently supported
