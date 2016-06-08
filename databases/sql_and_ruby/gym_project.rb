@@ -1,4 +1,9 @@
+#CREATING A PROGRAM THAT STORES ALL THE INFO OF REPS/SETS/WEIGHT OF GYM EXERCISES (4 things) AND DOES A SIMPLE CALCULATION to give  goal/progression for the next gym session.
 
+# At the moment, program assumes experienced weight-lifter with good form
+
+#3 x 10 @ 75% - Three sets of 10 reps at 75% of the 1RM
+# 8/80%, 6/85%, 6/85%, 4/90% - Eight reps at 80%, two sets of six reps at 85%, and four reps at 90% of the 1RM
 
 #require gems
 require 'sqlite3'
