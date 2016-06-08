@@ -5,8 +5,15 @@ To view tables
 .tables
 
 To create new table
-CREATE TABLE tablename (columnname DATATYPE);
-ex. CREATE TABLE rabbits (name CARCHAR(255), age INT, fluffy BOOLEAN);
+CREATE TABLE tablename (
+columnname DATATYPE
+);
+
+ex. CREATE TABLE rabbits (
+name CARCHAR(255),
+age INT,
+fluffy BOOLEAN
+);
 
 To view entire table (* is used to view all)
 SELECT * FROM tablename;
@@ -80,11 +87,31 @@ JOIN reviews ON id_num = reviews.id
 JOIN users ON id_person = reviews.id
 
 
-
-
 SELECT businesses.name, users.firstname AS first, users.lastname AS last, reviews.stars, reviews.review
 FROM reviews
 LEFT JOIN users ON (businesses.id = reviews.business_id)
 LEFT JOIN businesses ON (businesses.id = users.id);
 
 
+ALTERING TABLE (RENAMING), ADDING A COLUMN
+
+Say you have a table and need to rename "colb" to "col_b":
+
+First you rename the old table:
+
+ALTER TABLE orig_table_name RENAME TO tmp_table_name;
+Then create the new table, based on the old table but with the updated column name:
+
+CREATE TABLE orig_table_name (
+  col_a INT
+, col_b INT
+);
+Then copy the contents across from the original table.
+
+INSERT INTO orig_table_name(col_a, col_b)
+SELECT col_a, colb
+FROM tmp_table_name;
+Lastly, drop the old table.
+
+DROP TABLE tmp_table_name;
+Wrapping all this in a BEGIN TRANSACTION; and COMMIT; is also probably a good idea.
