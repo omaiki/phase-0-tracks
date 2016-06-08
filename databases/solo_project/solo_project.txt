@@ -5,8 +5,9 @@ name VARCHAR(255)
 
 
 CREATE TABLE books (
+id integer PRIMARY KEY,
 title VARCHAR(255),
-Page_count INT,
+author_id INT,
 author_id INT,
 FOREIGN KEY (author_id) REFERENCES author (id)
 );
@@ -21,20 +22,20 @@ INSERT INTO books (title) VALUES ("A Storm of Swords");
 
 
 UPDATE author SET born="September 20th, 1948" WHERE name="George R.R. Martin";
-UPDATE author SET born="April 28th, 1926" WHERE name="Harper Lee";
-UPDATE author SET born="July 21st, 1899" WHERE name="Ernest Hemingway";
-UPDATE author SET born="January 15th, 1933" WHERE name="Earnest J. Gaines";
 
-UPDATE books SET Page_count=973 WHERE title="A Storm of Swords";
-UPDATE books SET Page_count=694 WHERE title="Game of Thrones";
-UPDATE books SET Page_count=281 WHERE title="To Kill a Mockingbird;
 
-UPDATE books SET Page_count=256 WHERE title="A Lesson Before Dying";
-UPDATE books SET Page_count=127 WHERE title="The Old Man & the Sea";
-UPDATE books SET Page_count=1007 WHERE title="The Way of Kings";
-UPDATE books SET Page_count=541 WHERE title="Mistborn";
 
-UPDATE books SET title="Mistborn: The Final Empire" WHERE Page_count=541;
+UPDATE books SET author_id=1 WHERE title="A Storm of Swords";
+UPDATE books SET author_id=1 WHERE title="Game of Thrones";
+UPDATE books SET author_id=4 WHERE title="To Kill a Mockingbird";
+UPDATE books SET author_id=5 WHERE title="A Lesson Before Dying";
+UPDATE books SET author_id=3 WHERE title="The Old Man & the Sea";
+UPDATE books SET author_id=2 WHERE title="The Way of Kings";
+UPDATE books SET author_id=2 WHERE title="Mistborn: The Final Empire";
+
+
+
+SELECT * FROM books, author WHERE books.author_id = author.id;
 
 
 
