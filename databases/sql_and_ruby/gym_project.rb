@@ -1,7 +1,6 @@
-  # ask the user for their name and age
-  # store user, age, EXERCISES into table
-  # calculate next_time exercises for next gym session
-  # print table with user, weight, exercises for next_time
+#get users name, weight, workout
+# method that takes user 1RM max in a workout and calculates exercises for next workout
+# put name, weight, workout, next_workout into a database to show multiple exercises for a user.
 
   # At the moment, program assumes experienced weight-lifter with good form
   # early stages: calculation not very accurate and does NOT account for gender, age differences yet =/
@@ -15,65 +14,74 @@ db = SQLite3::Database.new("gym_project.db")
 db.results_as_hash = true
 
 
+
 #declaring a string for creating a table
 create_table_cmd = <<-SQL
 CREATE TABLE IF NOT EXISTS user(
   id INTEGER PRIMARY KEY,
   name VARCHAR(255),
-  age INTEGER,
+  weight INTEGER,
   exercise VARCHAR(255),
   progression VARCHAR(255)
 )
 SQL
 
-# method to add workout info(exercise and progression) into database
-def workout_info(db, exercise, progression)
-  db.execute("INSERT INTO user (exercise, progression) VALUES (?, ?)", [exercise, progression])
+# # # method to add workout info(exercise and progression) into database
+# def workout_info(db, exercise, progression)
+#   db.execute("INSERT INTO user (exercise, progression) VALUES (?, ?)", [exercise, progression])
+# end
+
+# method to calculate progression on exercise for user
+  def progressive_overload(exercise,intensity, max)
+    case intensity
+    when "1"
+      progression_calc = max * 0.75
+      progression = "Complete three sets, 10 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
+    when "2"
+        progression_calc = max * 0.80
+        progression = "Complete three sets, 8 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
+    when "3"
+        progression_calc = max * 0.90
+        progression = "Complete three sets, 4 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
+    end
+    return progression
 end
+
+#method to create user on user table
+def create_user(db, name, weight, exercise, progression)
+  db.execute("INSERT INTO user (name, weight, exercise, progression) VALUES (?, ?, ?, ?)", [name, weight, exercise, progression])
+end
+
+#method to add exercise info to user on table
 
 #INTERFACE
 
-# obtain workout and 1RM of user, do Calculation method for 1RM and next time workout
-def progressive_overload
-  puts "Enter your name:"
+answer = ''
+puts "Hi there! Welcome to the Progressive Overload Simulator...."
+# executing the string, creating a table
+db.execute(create_table_cmd)
+until answer == 'exit'
+  puts "Enter your name: "
   name = gets.chomp
-  puts "Enter your age:"
-  age = gets.chomp
+  puts "Enter your weight: "
+  weight = gets.chomp
   puts "Exercise choice?"
   exercise = gets.chomp
   puts "ONE REPETITION MAXIMUM for exercise/lift?"
-  one_RM = gets.chomp.to_i
-  progression_calc = one_RM * 0.75
-  progression = "Complete three sets, 10 repetitions of #{progression_calc.to_i.to_s} pounds at your next workout."
-  p progression
+  max = gets.chomp.to_i
+  puts "Intensity? (1-3; 3 being highest)"
+  intensity = gets.chomp
+  progression = progressive_overload(exercise, intensity, max)
+  #storing data into making a user
+  create_user(db, name, weight, exercise, progression)
+puts "Press enter to continue with another user or ,'exit', if you are finished!"
+answer = gets.chomp
+user = db.execute("SELECT * FROM user")
+user.each do |user|
+  puts "#{user['name']} weighs #{user['weight']} pounds. For #{user['exercise']}, #{user['progression']}."
+end
 end
 
-# add some if/else or case statements for gender/age down the line
 
-#executing the string, creating a table
-answer = ''
-puts "Hi there! Welcome to the Progressive Overload Simulator. Type 'done' if you are finished."
-until answer = 'done'
-db.execute(create_table_cmd)
-progressive_overload
-end
 
-#Added a user with stored info to (user) table through a method with input as arguments
-    #db.execute("INSERT INTO user(name, weight, workout) VALUES ('Joseph', 170, 'squat')")
-    # need the database as an argument
-    # use ? placeholder for user input data instead of interpolation --- security
 
-def create_user(db, name, weight)
-  db.execute("INSERT INTO user (name, weight) VALUES (?, ?)", [name, weight])
-end
-
-#making names in Faker
-
-# 3.times do
-#   create_user(db, Faker::Name.name, 170,"benchpress")
-# end
-
-# user = db.execute("select * from user")
-# user.each do |user|
-#   puts "#{user['name']} weighs #{user['weight']} pounds. Workout of choice is: #{user['workout']}."
-# end
