@@ -1,0 +1,106 @@
+SELECT * FROM books;
+
+OUTPUT----------------------
+
+  1|A Storm of Swords|973|1
+  2|Game of Thrones|694|1
+  3|To Kill a Mockingbird|281|4
+  4|A Lesson Before Dying|256|5
+  5|The Old Man & the Sea|127|3
+  6|The Way of Kings|1007|2
+  7|Mistborn|541|2
+
+
+UPDATE books SET title="Mistborn: The Final Empire" WHERE Page_count=541;
+
+
+OUTPUT-------------
+
+  7|Mistborn: The Final Empire|541|2
+
+
+SELECT * FROM books, author WHERE books.author_id = author.id;
+
+OUTPUT -----------------
+
+  1|A Storm of Swords|973|1|1|George R.R. Martin|September 20th, 1948
+  2|Game of Thrones|694|1|1|George R.R. Martin|September 20th, 1948
+  3|To Kill a Mockingbird|281|4|4|Harper Lee|April 28th, 1926
+  4|A Lesson Before Dying|256|5|5|Ernest J. Gaines|January 15th, 1933
+  5|The Old Man & the Sea|127|3|3|Ernest Hemingway|July 21st, 1899
+  6|The Way of Kings|1007|2|2|Brandon Sanderson|December 19th, 1975
+  7|Mistborn: The Final Empire|541|2|2|Brandon Sanderson|December 19th, 1975
+
+SELECT books.title, books.Page_count, author.name FROM books JOIN author ON books.author_id = author.id;
+
+OUTPUT-----------------------
+
+  A Storm of Swords|973|George R.R. Martin
+  Game of Thrones|694|George R.R. Martin
+  To Kill a Mockingbird|281|Harper Lee
+  A Lesson Before Dying|256|Ernest J. Gaines
+  The Old Man & the Sea|127|Ernest Hemingway
+  The Way of Kings|1007|Brandon Sanderson
+  Mistborn: The Final Empire|541|Brandon Sanderson
+
+
+  DELETE FROM books WHERE title="Game of Thrones";
+  SELECT * FROM books;
+
+  OUTPUT --------------
+
+    1|A Storm of Swords|973|1
+  3|To Kill a Mockingbird|281|4
+  4|A Lesson Before Dying|256|5
+  5|The Old Man & the Sea|127|3
+  6|The Way of Kings|1007|2
+  7|Mistborn: The Final Empire|541|2
+
+
+DIFFERENT TYPE OF JOINS:
+  - Inner join
+  - Outer join
+  - Right join
+  - Full join
+
+  There is a good ven diagram describing the different type of joins on <http://www.sql-join.com/sql-join-types>
+  -- very helpful.
+
+
+  SELECT books.title, books.Page_count, author.name
+  from books
+  INNER join author
+  on author.id = books.author_id;
+
+  OUTPUT --------------------------
+
+  A Storm of Swords|973|George R.R. Martin
+  To Kill a Mockingbird|281|Harper Lee
+  A Lesson Before Dying|256|Ernest J. Gaines
+  The Old Man & the Sea|127|Ernest Hemingway
+  The Way of Kings|1007|Brandon Sanderson
+  Mistborn: The Final Empire|541|Brandon Sanderson
+_______________________________________________________
+
+SELECT books.title, books.Page_count, author.name
+  from books
+  INNER join author
+  on author.id = books.author_id;
+
+OUTPUT-----------------------------
+A Storm of Swords|973|George R.R. Martin
+To Kill a Mockingbird|281|Harper Lee
+A Lesson Before Dying|256|Ernest J. Gaines
+The Old Man & the Sea|127|Ernest Hemingway
+The Way of Kings|1007|Brandon Sanderson
+Mistborn: The Final Empire|541|Brandon Sanderson
+----------------------------------------------------------
+
+SELECT books.title, books.Page_count, author.name, author.born
+FROM books
+RIGHT join author
+on books.author_id = author.id;
+
+OUTPUT----------
+
+  Error: RIGHT and FULL OUTER JOINs are not currently supported

@@ -1,0 +1,117 @@
+To run SQL .db files
+sqlite3 example.db
+
+To view tables
+.tables
+
+To create new table
+CREATE TABLE tablename (
+columnname DATATYPE
+);
+
+ex. CREATE TABLE rabbits (
+name CARCHAR(255),
+age INT,
+fluffy BOOLEAN
+);
+
+To view entire table (* is used to view all)
+SELECT * FROM tablename;
+ex. SELECT * FROM rabbits;
+
+To view certain column(s)
+SELECT columnname FROM tablename;
+ex. SELECT name, age FROM rabbits;
+
+To conditionally view rows
+SELECT * FROM tablename WHERE column=value;
+ex. SELECT * FROM rabbits WHERE age=5;
+
+To create new row
+INSERT INTO tablename (columnname) VALUES (value);
+ex. INSERT INTO rabbits (name) VALUES ("Oreo");
+
+To create new column
+ALTER TABLE tablename ADD columnname DATATYPE;
+ex. ALTER TABLE rabbits ADD adoptable BOOLEAN;
+
+To update data in table
+UPDATE tablename SET columnnam=value WHERE columnname=value;
+ex. UPDATE rabbits SET age=5 WHERE name="Oreo";
+
+To delete a table (drop table)
+DROP TABLE tablename;
+ex. DROP TABLE rabbits;
+
+To delete a row or rows from a table
+DELETE FROM tablename WHERE columnname=value;
+ex. DELETE FROM rabbits WHERE name="Oreo";
+
+To create a primary key (unique per row), put it in table creation
+
+CREATE TABLE <tablename> (
+id INTEGER PRIMARY KEY,
+.... rest of your attributes go here....
+);
+
+<name_of_column_to_create> <DATA_TYPE_OF_COLUMN_TO_CREATE>,
+FOREIGN KEY(<name_of_column_to_create>) REFERENCES <existing_table_name>(<existing_column_name>)
+
+CREATE TABLE businesses (
+id INTEGER PRIMARY KEY,
+name VARCHAR(255)
+);
+
+CREATE TABLE users (
+id INTEGER PRIMARY KEY,
+firstname VARCHAR(255),
+lastname VARCHAR(255)
+);
+
+CREATE TABLE reviews (
+id INT PRIMARY KEY,
+stars INT,
+review VARCHAR(255),
+business_id INT,
+users_id INT,
+FOREIGN KEY (business_id) REFERENCES businesses(id),
+FOREIGN KEY (users_id) REFERENCES users(id)
+);
+
+
+SELECT * FROM reviews INNER JOIN businesses ON
+
+SELECT businesses.id AS id_num, users.id AS id_person
+FROM reviews, businesses, users
+JOIN reviews ON id_num = reviews.id
+JOIN users ON id_person = reviews.id
+
+
+SELECT businesses.name, users.firstname AS first, users.lastname AS last, reviews.stars, reviews.review
+FROM reviews
+LEFT JOIN users ON (businesses.id = reviews.business_id)
+LEFT JOIN businesses ON (businesses.id = users.id);
+
+
+ALTERING TABLE (RENAMING), ADDING A COLUMN
+
+Say you have a table and need to rename "colb" to "col_b":
+
+First you rename the old table:
+
+ALTER TABLE orig_table_name RENAME TO tmp_table_name;
+Then create the new table, based on the old table but with the updated column name:
+
+CREATE TABLE orig_table_name (
+  col_a INT
+, col_b INT
+);
+Then copy the contents across from the original table.
+
+INSERT INTO orig_table_name(col_a, col_b)
+SELECT col_a, colb
+FROM tmp_table_name;
+Lastly, drop the old table.
+
+DROP TABLE tmp_table_name;
+Wrapping all this in a BEGIN TRANSACTION; and COMMIT; is also probably a good idea.
