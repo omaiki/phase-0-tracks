@@ -1,0 +1,1 @@
+Linux is often used for VMs because it is free
