@@ -1,28 +1,27 @@
 console.log("The link to js file is working!");
-
-//event listener on photo to be clicked
-  // need function
-
-// function addBorder(event) {
-//   event.target.style.border = "3 px solid blue";
-//   }
-
-function cursiveThat() {
+function blueThat() {
   var text = document.getElementById('about-my-pet');
-  text.style.color= "blue";
+ text.style.color= "blue";
 };
 
-cursiveThat();
+//event listener on photo to be clicked
+// need function
 
-function increaseSize() {
-  var textDescription =
-}
+function addBorder(event) {
+  console.log("click example...it happened! Here it is:")
+  console.log(event)
+  event.target.style.border = "3px solid blue";
+  };
 
-// // grab photo and put event-listener on the element
+    // grab photo and put event-listener on the element
+var photo = document.getElementById("lizard-photo");
+    //arguments = (what type of event as a string, then give it code you want to run when it type of event is triggered)
+photo.addEventListener("click", addBorder);
 
-// var photo = document.getElementbyId("lizard-photo");
+// example with font changing function
+var text = document.getElementById("about-my-pet");
+text.addEventListener("click", blueThat);
 
-// // addevent function can be used on an element
-// //arguments = (what type of event as a string, then give it code you want to run when it type of event is triggered)
 
-// photo.addEventListener("click", addBorder);
+
+
