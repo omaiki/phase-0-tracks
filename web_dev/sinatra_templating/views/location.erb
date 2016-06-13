@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Location Test</title>
+  <link rel="stylesheet" href="styles.css"
+</head>
+<body>
+
+  <h1> View Students by Location </h1>
+
+  <h2> San Francisco students:</h2>
+ <ul>
+    <% @students_sf.each do |student| %>
+      <li><%= student['name'] %>, <%= student['campus'] %></li>
+    <% end %>
+  </ul>
+
+</body>
+</html>

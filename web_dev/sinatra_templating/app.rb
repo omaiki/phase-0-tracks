@@ -24,4 +24,17 @@ post '/students' do
   redirect '/'
 end
 
-# add static resources
+
+get '/students/locations' do
+  @students = db.execute("SELECT * FROM students")
+  @students_sf = db.execute("SELECT * FROM students WHERE campus = 'SF'")
+
+
+# 3 ways to get data to server
+
+# get request with query parameters
+# route parameters with routes being variables
+# post will send data in body of http request
+
+# all three methods end up in params
+
