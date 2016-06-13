@@ -1,7 +1,3 @@
-
-# require gems
-require 'sinatra'
-
 #building a server with Ruby that can do more than just handle HTTP requests, but handle persistent data... these websites with logical ability are called WEB APPLICATIONS
 
 # Sinatra gives foundation to create a web server
@@ -58,20 +54,21 @@ get '/students/:id' do
   student.to_s
 end
 
-get '/contact' do
-  "139 Raleigh Court. <br> Hercules, California 94547"
-end
+# get '/contact' do
+#   "139 Raleigh Court. <br> Hercules, California 94547"
+# end
 
-get '/great_job'
-name = params[:name]
-if name
-  "Good job, #{name}!"
-else
-  "Good job!"
-end
-end
+# get '/great_job'
+# name = params[:name]
+# if name
+#   "Good job, #{name}!"
+# else
+#   "Good job!"
+# end
 
-get '/:number_1/add/:number_2' do
-  x = params[:num_1].to_i + params[:num_2].to_i
-  "Sum is #{x}"
-end
+
+
+# get '/:number_1/add/:number_2' do
+#   x = params[:num_1].to_i + params[:num_2].to_i
+#   "Sum is #{x}"
+# end
